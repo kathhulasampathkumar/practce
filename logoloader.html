@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="custom-loader-container"  id="custom_loader_container">
+        <img src="medhasvg.svg" alt="" height="120px" width="120px"/>
+        <div class="loader"> 
+        </div>
+        
+     </div> 
+     <style>
+        /* Center the container using Flexbox */
+        .custom-loader-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 70vh; /* Adjust height as needed */
+        }
+
+        /* Loader styles */
+        .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        }
+        #custom_loader_container img {
+            position: absolute;
+            top: 36.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+     </style>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Modal Example</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- PDF.js -->
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal"> Open PDF </button>
+<div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>    
+    <div class="modal-body">
+        <div id="pdfContainer"></div>
+    </div>
+    </div>
+</div>
+</div>
+      
+      
+
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+      $('#pdfModal').on('shown.bs.modal', function () {
+        // PDF.js
+        const pdfContainer = document.getElementById('pdfContainer');
+        const pdfUrl = '1.pdf'; // Replace with your PDF URL
+  
+        // Fetch the PDF document
+        pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc) {
+          // Loop through each page
+          for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+            // Load the page
+            pdfDoc.getPage(pageNum).then(function(page) {
+              // Create a canvas for the page
+              const canvas = document.createElement('canvas');
+              pdfContainer.appendChild(canvas);
+  
+              // Set the canvas dimensions
+              const viewport = page.getViewport({ scale: 1.5 });
+              canvas.width = viewport.width;
+              canvas.height = viewport.height;
+  
+              // Render the page content into the canvas
+              const context = canvas.getContext('2d');
+              const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+              };
+              page.render(renderContext);
+            });
+          }
+        });
+      });
+  
+      // Clean up the modal on close
+      $('#pdfModal').on('hidden.bs.modal', function () {
+        const pdfContainer = document.getElementById('pdfContainer');
+        pdfContainer.innerHTML = '';
+      });
+    });
+  </script>
+  

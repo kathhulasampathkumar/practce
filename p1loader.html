@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown with Multiple Checkboxes and Search</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select options
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
+            <input type="text" class="form-control" id="myInput" placeholder="Search...">
+            <div id="checkboxes">
+                <!-- Checkboxes will be added here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    $(document).ready(function() {
+        // Add checkboxes to the dropdown
+        var checkboxes = '';
+        for (var i = 0; i < 10; i++) {
+            checkboxes += '<div class="checkbox"><label><input type="checkbox" value="' + i + '">' + i + '</label></div>';
+        }
+        $('#checkboxes').html(checkboxes);
+    
+        // Filter checkboxes based on search input
+        $('#myInput').on('keyup', function() {
+            var value = $(this).val().toLowerCase();
+            $('#checkboxes div').filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    </script>
+</body>
+</html>

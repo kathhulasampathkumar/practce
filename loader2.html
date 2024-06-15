@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image {
+            position: relative;
+        }
+
+        .image img {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 140px;
+        }
+
+        .spin {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #34495e;
+            border-radius: 50%;
+            animation: spin 0.75s infinite linear;
+        }
+
+        .spin::before,
+        .spin::after {
+            position: absolute;
+            content: '';
+            width: inherit;
+            height: inherit;
+            border: inherit;
+            border-radius: inherit;
+            border-color: transparent;
+            border-top-color: blue;
+            animation-duration: 1.2s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+
+        .spin::before {
+            left: -2px;
+            top: -2px;
+            transform: rotate(120deg);
+        }
+
+        .spin::after {
+            left: -2px;
+            top: -2px;
+            transform: rotate(240deg);
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width:480px) {
+            .spin {
+                width: 270px;
+                height: 270px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image">
+        <img src="medhalogo1.png" alt="" />
+        <div class="spin"></div>
+    </div>  
+</body>
+</html>

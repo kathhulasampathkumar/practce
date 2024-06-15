@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="padding: 50px;">
+    <input type='text' id='currencyInput' name='currencyInput' style="text-align: right;" maxlength="18">
+
+    
+</body>
+</html>
+
+<script>
+    document.getElementById('currencyInput').addEventListener('keypress', function(event) {
+        const input = event.target;
+        // Remove existing commas and non-numeric characters
+        const value = input.value.replace(/,/g, '').replace(/[^0-9.]/g, '');
+        // Format the number with commas every three digits
+        const formattedValue = Number(value).toLocaleString('en-IN', { maximumFractionDigits: 2 });
+        input.value = formattedValue;
+    });
+
+    // function getValueSeparation(event){
+    // }
+
+
+</script>

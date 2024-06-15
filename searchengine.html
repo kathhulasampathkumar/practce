@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Search Engine</title>
+<style>
+    /* Some basic styling for the search engine */
+    #searchInput {
+        width: 300px;
+        padding: 5px;
+        font-size: 16px;
+    }
+    #searchResults {
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1>Simple Search Engine</h1>
+    <input type="text" id="searchInput" placeholder="Search...">
+    <div id="searchResults"></div>
+
+    <script>
+        const data = [
+            { id: 1, title: 'JavaScript Basics' },
+            { id: 2, title: 'JavaScript Arrays' },
+            { id: 3, title: 'JavaScript Functions' },
+            { id: 4, title: 'JavaScript Objects' },
+            { id: 5, title: 'JavaScript Promises' }
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredData = data.filter(item => item.title.toLowerCase().includes(searchTerm));
+            displayResults(filteredData);
+        });
+
+        function displayResults(results) {
+            let html = '';
+            results.forEach(result => {
+                html += `<div>${result.title}</div>`;
+            });
+            searchResults.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Group Chat Modal</title>
+    
+</head>
+<body>
+
+<!-- Button to open the chat modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#chatModal">
+    Open Chat
+</button>
+
+<!-- The chat modal -->
+<div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chatModalLabel">Caleb's Birthday Group</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body chat-modal">
+                <div class="chat-container">
+                    <div class="chat-bubble received">
+                        <div class="mb-2 pb-1">Hi guys, as you know, Caleb's birthday is coming up. What color socks should I buy him as a present? Gold or plain white??</div>
+                        <div class="metadata">
+                            <span>You&nbsp;&nbsp;11:44 AM</span>
+                        </div>
+                    </div>
+                    <div class="chat-bubble received">
+                        <div class="mb-2 pb-1">white and long ones</div>
+                        <div class="metadata">
+                            <span>Floyd&nbsp;&nbsp;11:54 AM</span>
+                        </div>
+                    </div>
+                    <div class="chat-bubble sent">
+                        <div class="mb-2 pb-1">White with gold stripes??</div>
+                        <div class="metadata">
+                            <span>You&nbsp;&nbsp;11:54 AM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-bubble sent">
+                        <div class="mb-2 pb-1">A serious conversation about socks!</div>
+                        <div class="metadata">
+                            <span>You&nbsp;&nbsp;12:53 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="text" class="form-control chat-input" placeholder="Type a message">
+                <button type="button" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .chat-modal {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    .chat-bubble {
+        padding: 10px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        max-width: 80%;
+        position: relative;
+    }
+    .chat-bubble.sent {
+        background-color: #DCF8C6;
+        align-self: flex-end;
+    }
+    .chat-bubble.received {
+        background-color: lightblue;
+        align-self: flex-start;
+    }
+    .chat-bubble .metadata {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8em;
+        color: gray;
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+    }
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-input {
+        border-radius: 15px;
+    }
+</style>
+<!-- jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

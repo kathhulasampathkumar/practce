@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Story Animation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  #story {
+    font-size: 24px;
+    text-align: center;
+    animation: lifeStory 100s linear infinite;
+  }
+  @keyframes lifeStory {
+    0% { transform: scale(1); }
+    25% { transform: scale(5.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(5); }
+    100% { transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+<div id="story">Once upon a time...</div>
+<script>
+  const story = document.getElementById('story');
+  const events = [
+    'was born',     
+    'was born',     
+    'learned to walk',
+     'started school',
+     'graduated',
+     'got a job',
+     'got married',
+     'had children',
+     'retired',
+     'lived happily ever after',
+    ];
+  let index = 0;
+  setInterval(() => {
+    story.textContent = `...${events[index]}...`;
+    index = (index + 1) % events.length;
+  }, 2000);
+</script>
+</body>
+</html>

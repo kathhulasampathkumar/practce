@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Textarea Expansion</title>
+    <style>
+        textarea {
+            /* resize: none;
+            overflow-y: hidden; */
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Textarea Expansion</h1>
+    <textarea id="dynamicTextarea" rows="1" cols="100" oninput="autoExpand(this)"></textarea>
+
+    <script>
+        function autoExpand(textarea) {
+            // Reset the height to auto to get the full scrollHeight
+            textarea.style.height = 'auto';
+            // Set the height to the scrollHeight (the full height of the content)
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Group Chat Modal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chat-modal {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .chat-bubble {
+            padding: 10px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            max-width: 80%;
+        }
+        .chat-bubble.sent {
+            background-color: #DCF8C6;
+            align-self: flex-end;
+        }
+        .chat-bubble.received {
+            background-color: #fff;
+            align-self: flex-start;
+        }
+        .chat-bubble.received span {
+            color: gray;
+            font-size: 0.8em;
+            display: block;
+        }
+        .chat-input {
+            border-radius: 15px;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Button to open the chat modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#chatModal">
+    Open Chat
+</button>
+
+<!-- The chat modal -->
+<div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chatModalLabel">Caleb's Birthday Group</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body chat-modal">
+                <div class="chat-container">
+                    <div class="chat-bubble received">
+                        <span>You created group "Caleb's Birthday"</span>
+                        Hi guys, as you know, Caleb's birthday is coming up. What color socks should I buy him as a present? Gold or plain white??
+                    </div>
+                    <div class="chat-bubble received">
+                        Floyd: white and long ones
+                    </div>
+                    <div class="chat-bubble sent">
+                        White with gold stripes??
+                    </div>
+                    <div class="chat-bubble received">
+                        Floyd: addidas have those but just buy cheap
+                    </div>
+                    <div class="chat-bubble sent">
+                        <span>&#128077;&#127881;</span>
+                    </div>
+                    <div class="chat-bubble received">
+                        Eunice 'Cakes' Manalo: Wth is this babe
+                    </div>
+                    <div class="chat-bubble sent">
+                        A serious conversation about socks!
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="text" class="form-control chat-input" placeholder="Type a message">
+                <button type="button" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
